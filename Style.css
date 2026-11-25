@@ -1,0 +1,451 @@
+/* =========================================================
+   CV — Francisco Javier Barraza López
+   Una hoja tamaño Carta (8.5 x 11 in), lista para imprimir / PDF
+   Paleta: gris carbón + verde esmeralda
+   ========================================================= */
+
+:root {
+    --charcoal: #1E2A32;      /* columna lateral */
+    --charcoal-2: #2B3A44;    /* tono para la foto */
+    --emerald: #0F7B6C;       /* acento principal (texto y líneas) */
+    --emerald-lt: #3CC4A8;    /* acento sobre fondo oscuro */
+    --ink: #1A2228;           /* texto principal */
+    --ink-2: #46525B;         /* texto secundario */
+    --muted: #67737C;         /* fechas y notas */
+    --rule: #E2E7EA;          /* líneas */
+    --side-text: #E3E9EC;
+    --side-muted: #A8B6BE;
+    --page-bg: #E4E8EA;
+    --photo-pos: 50% 25%;     /* encuadre de la foto: horizontal vertical */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--page-bg);
+    padding: 72px 16px 40px;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { list-style: none; }
+
+/* ---------- Botón Descargar PDF ---------- */
+.toolbar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.hint {
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: right;
+    color: var(--ink-2);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(30, 42, 50, 0.12);
+}
+
+.btn-pdf:disabled { opacity: 0.7; cursor: wait; }
+
+.btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--emerald);
+    color: #fff;
+    font: 600 14px 'Inter', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(15, 123, 108, 0.3);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-pdf:hover { background: var(--charcoal); transform: translateY(-1px); }
+.btn-pdf:focus-visible { outline: 3px solid var(--emerald-lt); outline-offset: 2px; }
+
+/* ---------- Hoja ---------- */
+.sheet {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 2.72in minmax(0, 1fr);
+    box-shadow: 0 12px 40px rgba(30, 42, 50, 0.2);
+}
+
+/* ---------- Columna lateral ---------- */
+.side {
+    background: var(--charcoal);
+    color: var(--side-text);
+    padding: 0.32in 0.26in 0.28in 0.3in;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Marco vertical 4:5 para foto de celular */
+.photo {
+    position: relative;
+    width: 1.08in;
+    aspect-ratio: 4 / 5;
+    margin: 6px auto 6px;
+    border-radius: 12px;
+    background: var(--charcoal-2);
+    box-shadow: 0 0 0 4px var(--charcoal), 0 0 0 6px var(--emerald-lt);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--photo-pos);
+}
+
+.photo.no-img img { display: none; }
+
+.photo-fallback {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 36px;
+    color: var(--emerald-lt);
+}
+
+.s-block h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 7px;
+}
+
+.s-block h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.contact li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 11px;
+    margin-bottom: 3px;
+    overflow-wrap: anywhere;
+}
+
+.contact i { width: 13px; text-align: center; color: var(--emerald-lt); flex-shrink: 0; }
+
+.s-list li {
+    position: relative;
+    padding-left: 12px;
+    font-size: 11px;
+    line-height: 1.45;
+    margin-bottom: 2px;
+}
+
+.s-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 5px;
+    height: 5px;
+    background: var(--emerald-lt);
+    transform: rotate(45deg);
+}
+
+.tech dt {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--emerald-lt);
+}
+
+.tech dd {
+    font-size: 11px;
+    line-height: 1.45;
+    margin-bottom: 4px;
+}
+
+.tech dd:last-child { margin-bottom: 0; }
+
+.s-text { font-size: 11px; line-height: 1.55; }
+
+.certs li { display: flex; gap: 9px; align-items: flex-start; font-size: 11px; line-height: 1.4; }
+.certs li > i { width: 13px; text-align: center; margin-top: 2px; color: var(--emerald-lt); }
+.certs li div { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.certs li + li { margin-top: 6px; }
+.certs strong { font-weight: 600; color: #fff; }
+.certs span { color: var(--side-muted); }
+
+/* ---------- Columna principal ---------- */
+.main {
+    padding: 0.34in 0.46in 0.3in 0.36in;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.head { padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+
+.head h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.role {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--emerald);
+}
+
+.role .sep { color: var(--rule); margin: 0 4px; }
+
+/* Títulos de sección */
+.block h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.h-ico {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: var(--emerald);
+    color: #fff;
+    font-size: 10.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0;
+}
+
+.block h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+}
+
+.text { font-size: 11.5px; line-height: 1.6; color: var(--ink-2); }
+
+/* Experiencia */
+.job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.job-head h3 { font-size: 13px; font-weight: 700; color: var(--ink); }
+
+.org { font-size: 11.5px; font-weight: 600; color: var(--emerald); }
+
+.date {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.bullets { margin-top: 5px; }
+
+.bullets li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin-bottom: 3px;
+}
+
+.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--emerald);
+}
+
+.bullets strong { color: var(--ink); font-weight: 600; }
+
+/* Proyectos */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; }
+
+.projects h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.projects p { font-size: 11px; line-height: 1.45; color: var(--ink-2); }
+
+.repo {
+    margin-left: 6px;
+    font-size: 12.5px;
+    color: var(--emerald);
+    vertical-align: -1px;
+}
+
+.repo:hover { color: var(--ink); text-decoration: none; }
+
+/* Educación */
+.edu + .edu { margin-top: 8px; }
+
+.note { margin-top: 2px; font-size: 11px; line-height: 1.45; color: var(--ink-2); }
+
+/* ---------- Íconos (alineados con el texto) ---------- */
+.sheet .fas,
+.sheet .far,
+.sheet .fab { line-height: 1; }
+
+/* Títulos de la columna lateral */
+.s-block h2 i {
+    width: 14px;
+    flex-shrink: 0;
+    text-align: center;
+    color: var(--emerald-lt);
+    font-size: 11px;
+}
+
+/* Contacto */
+.contact li { line-height: 1.3; }
+.contact i { font-size: 11px; }
+
+/* Categorías de tecnologías */
+.tech dt { display: flex; align-items: center; gap: 5px; }
+.tech dt i { width: 13px; text-align: center; font-size: 10px; }
+
+/* Institución y fechas */
+.org { display: flex; align-items: center; gap: 5px; }
+.org i { width: 11px; text-align: center; font-size: 10px; opacity: 0.85; flex-shrink: 0; }
+
+.date { display: inline-flex; align-items: center; gap: 4px; }
+.date i { font-size: 10px; }
+
+/* Proyectos: ícono, título y enlaces en una sola línea centrada */
+.projects h3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.p-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #E4F3EF;
+    color: var(--emerald);
+    font-size: 9px;
+}
+
+.projects .repo {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0;
+    vertical-align: middle;
+}
+
+/* Certificaciones: ícono centrado con la primera línea y enlace al PDF */
+.certs li > i {
+    height: 15px;
+    margin-top: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+.certs strong { display: block; }
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 14px;
+    height: 15px;
+    color: var(--emerald-lt);
+    font-size: 12px;
+}
+
+.cert-link:hover { color: #fff; text-decoration: none; }
+.cert-title:hover { color: var(--emerald-lt); text-decoration: none; }
+
+/* ---------- Pantallas pequeñas (solo en pantalla, no en PDF) ---------- */
+@media screen and (max-width: 860px) {
+    body { padding: 72px 0 0; }
+    .sheet { width: 100%; min-height: 0; grid-template-columns: 1fr; box-shadow: none; }
+    .main { order: -1; padding: 28px 22px; }
+    .side { padding: 28px 22px; }
+    .head h1 { font-size: 30px; }
+    .job-head { flex-direction: column; gap: 0; }
+}
+
+/* ---------- Impresión / PDF ---------- */
+@page { size: letter; margin: 0; }
+
+@media print {
+    body { background: #fff; padding: 0; }
+    .no-print { display: none !important; }
+    .sheet {
+        width: 8.5in;
+        height: 11in;
+        min-height: 0;
+        margin: 0;
+        box-shadow: none;
+        overflow: hidden;
+    }
+    a { text-decoration: none; }
+}

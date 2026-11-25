@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Javier Barraza Lopez — CV | Desarrollador de Software</title>
+    <meta name="description" content="Currículum de Francisco Javier Barraza Lopez, desarrollador de software: web, móvil, APIs, bases de datos, machine learning, redes y seguridad.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- El nombre debe coincidir EXACTAMENTE (mayúsculas incluidas) con el archivo -->
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- Botón de descarga (no aparece en el PDF) -->
+    <div class="toolbar no-print">
+        <button id="btnPdf" class="btn-pdf" type="button">
+            <i class="fas fa-file-pdf" aria-hidden="true"></i> Descargar PDF
+        </button>
+        <p id="pdfStatus" class="hint" role="status" aria-live="polite">Se descarga directo, sin fecha ni ruta</p>
+    </div>
+
+    <!-- Hoja tamaño Carta (8.5 x 11 in) -->
+    <article class="sheet" id="cv">
+
+        <!-- ===================== COLUMNA LATERAL ===================== -->
+        <aside class="side">
+
+            <!-- ==================== FOTO ====================
+                 Marco vertical 4:5, pensado para una foto tomada con celular.
+                 1. Crea la carpeta "img" junto a este archivo.
+                 2. Guarda tu foto como "img/foto.jpg" (vertical, fondo liso,
+                    rostro centrado y hombros visibles).
+                 3. Si usas otro nombre o formato (.png, .jpeg), cámbialo en src.
+                 Para mover el encuadre, cambia --photo-pos en Style.css.
+                 Mientras no exista la foto se muestran las iniciales. -->
+            <div class="photo">
+                <img id="profilePhoto" src="img/foto.jpg" alt="Fotografía de Francisco Javier Barraza López">
+                <span class="photo-fallback" aria-hidden="true">FB</span>
+            </div>
+
+            <section class="s-block">
+                <h2><i class="fas fa-address-card" aria-hidden="true"></i> Contacto</h2>
+                <ul class="contact">
+                    <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+526442603710">+52 644 260 3710</a></li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:franbar1803@gmail.com">franbar1803@gmail.com</a></li>
+                    <li><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/Fran-Bar03">github.com/Fran-Bar03</a></li>
+                    <li><i class="fas fa-location-dot" aria-hidden="true"></i><span>Pueblo Yaqui, Sonora, México</span></li>
+                    <li><i class="fas fa-language" aria-hidden="true"></i><span>Español nativo</span></li>
+                </ul>
+            </section>
+
+            <section class="s-block">
+                <h2><i class="fas fa-gears" aria-hidden="true"></i> Habilidades técnicas</h2>
+                <ul class="s-list">
+                    <li>Desarrollo web, APIs y móvil</li>
+                    <li>PWA y modo offline</li>
+                    <li>BD: funciones, vistas, paginado, index</li>
+                    <li>Aprendizaje supervisado</li>
+                    <li>Técnicas de limpieza de datos</li>
+                    <li>IPv4 / IPv6 y subneteo</li>
+                    <li>Configuracion básica de switches, routers y modelo OSI</li>
+                    <li>Seguridad en aplicaciones</li>
+                    <li>Pruebas de software</li>
+                </ul>
+            </section>
+
+            <section class="s-block">
+                <h2><i class="fas fa-laptop-code" aria-hidden="true"></i> Tecnologías</h2>
+                <dl class="tech">
+                    <dt><i class="fas fa-code" aria-hidden="true"></i> Lenguajes</dt>
+                    <dd>C#, Python, TypeScript, JavaScript, Kotlin, SQL</dd>
+                    <dt><i class="fas fa-globe" aria-hidden="true"></i> Web y móvil</dt>
+                    <dd>ASP.NET Core, MVC, Web Forms, Angular, .NET MAUI, Xamarin</dd>
+                    <dt><i class="fas fa-database" aria-hidden="true"></i> Datos</dt>
+                    <dd>SQL Server, PostgreSQL, MongoDB, pandas, scikit-learn</dd>
+                    <dt><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Herramientas</dt>
+                    <dd>Git, Postman, Swagger, Selenium, Packet Tracer</dd>
+                </dl>
+            </section>
+
+            <section class="s-block">
+                <h2><i class="fas fa-users" aria-hidden="true"></i> Habilidades blandas</h2>
+                <p class="s-text">Compromiso · Responsabilidad · Constancia · Disciplina · Trabajo en equipo · Comunicación · Propuesta de soluciones · Apertura a retroalimentación</p>
+            </section>
+
+            <section class="s-block">
+                <h2><i class="fas fa-award" aria-hidden="true"></i> Certificaciones</h2>
+                <ul class="certs">
+                    <li><a class="cert-link" href="certificados/CCNA-Introduction-to-Networks.jpg" data-cert-url="https://raw.githubusercontent.com/Fran-Bar03/CV-Profesional/main/certificados/CCNA-Introduction-to-Networks.jpg" target="_blank" rel="noopener" title="Ver certificado" aria-label="Ver certificado CCNA: Introduction to Networks (imagen)"><i class="fas fa-file-image" aria-hidden="true"></i></a><div><strong><a class="cert-title" href="certificados/CCNA-Introduction-to-Networks.jpg" data-cert-url="https://raw.githubusercontent.com/Fran-Bar03/CV-Profesional/main/certificados/CCNA-Introduction-to-Networks.jpg" target="_blank" rel="noopener">CCNA: Introduction to Networks</a></strong><span>Cisco Networking Academy · 2024</span></div></li>
+                    <li><a class="cert-link" href="certificados/Tester-Capacitate-para-el-Empleo.jpg" data-cert-url="https://raw.githubusercontent.com/Fran-Bar03/CV-Profesional/main/certificados/Tester-Capacitate-para-el-Empleo.jpg" target="_blank" rel="noopener" title="Ver certificado" aria-label="Ver certificado Tester (imagen)"><i class="fas fa-file-image" aria-hidden="true"></i></a><div><strong><a class="cert-title" href="certificados/Tester-Capacitate-para-el-Empleo.jpg" data-cert-url="https://raw.githubusercontent.com/Fran-Bar03/CV-Profesional/main/certificados/Tester-Capacitate-para-el-Empleo.jpg" target="_blank" rel="noopener">Tester</a></strong><span>Capacítate para el Empleo · 2024</span></div></li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- ===================== COLUMNA PRINCIPAL ===================== -->
+        <main class="main">
+
+            <header class="head">
+                <h1>Francisco Javier Barraza Lopez</h1>
+                <p class="role">Desarrollador de Software</p>
+            </header>
+
+            <section class="block">
+                <h2><span class="h-ico"><i class="fas fa-bullseye" aria-hidden="true"></i></span> Objetivo profesional</h2>
+                <p class="text">TSU en Desarrollo de Software Multiplataforma y estudiante de Ingeniería en Desarrollo y Gestión de Software. Busco aportar en desarrollo web, móvil, APIs, datos y seguridad dentro de un equipo de trabajo. Comprometido, constante y abierto a aprender lo que la empresa necesite.</p>
+            </section>
+
+            <section class="block">
+                <h2><span class="h-ico"><i class="fas fa-briefcase" aria-hidden="true"></i></span> Experiencia laboral</h2>
+                <div class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3>Desarrollador de Software</h3>
+                            <p class="org"><i class="fas fa-building-columns" aria-hidden="true"></i> Gobierno del Estado de Sonora</p>
+                        </div>
+                        <span class="date"><i class="far fa-calendar-days" aria-hidden="true"></i> 2025 – 2026</span>
+                    </div>
+                    <ul class="bullets">
+                        <li><strong>Sistema PAAAS:</strong> desarrollo del sistema para gestión de compras anuales de dependencias gubernamentales.</li>
+                        <li><strong>Gestión de dependencias y unidades:</strong> implementación de CRUD para dependencias, unidades administrativas y responsables de compras.</li>
+                        <li><strong>Captura de conceptos:</strong> módulo para capturar conceptos de compra por cada unidad administrativa.</li>
+                        <li><strong>Base de datos:</strong> diseño de esquema relacional para almacenar dependencias, unidades, responsables y conceptos de compra.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2><span class="h-ico"><i class="fas fa-diagram-project" aria-hidden="true"></i></span> Proyectos académicos</h2>
+                <ul class="projects">
+                    <li>
+                        <h3><span class="p-ico"><i class="fas fa-brain" aria-hidden="true"></i></span>Predicción de diabetes (ML) <a class="repo" target="_blank" rel="noopener" href="https://github.com/Fran-Bar03/Predicicion-Diabetes-ML" title="Ver repositorio en GitHub" aria-label="Repositorio en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a></h3>
+                        <p>5 modelos supervisados en Python (scikit-learn, XGBoost) con AUC-ROC de 0.82.</p>
+                    </li>
+                    <li>
+                        <h3><span class="p-ico"><i class="fas fa-seedling" aria-hidden="true"></i></span>Invernadero Inteligente <a class="repo" target="_blank" rel="noopener" href="https://github.com/Fran-Bar03/InvernaderoInteligenteAPI" title="Repositorio de la API en GitHub" aria-label="Repositorio de la API en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a><a class="repo" target="_blank" rel="noopener" href="https://github.com/Fran-Bar03/InvernaderoInteligenteAngular" title="Repositorio del front-end Angular en GitHub" aria-label="Repositorio del front-end Angular en GitHub"><i class="fab fa-angular" aria-hidden="true"></i></a></h3>
+                        <p>IoT: API REST en ASP.NET Core 8 y MongoDB con JWT, front-end Angular y app .NET MAUI.</p>
+                    </li>
+                    <li>
+                        <h3><span class="p-ico"><i class="fas fa-dumbbell" aria-hidden="true"></i></span>Elite Fitness Center <a class="repo" target="_blank" rel="noopener" href="https://github.com/Fran-Bar03/EliteFitnessCenter" title="Ver repositorio en GitHub" aria-label="Repositorio en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a></h3>
+                        <p>Gimnasio en Web Forms y SQL Server: usuarios, clases, pagos y planes.</p>
+                    </li>
+                    <li>
+                        <h3><span class="p-ico"><i class="fas fa-mobile-screen" aria-hidden="true"></i></span>Aplicación web progresiva <a class="repo" target="_blank" rel="noopener" href="https://github.com/Fran-Bar03/ApplicacionesWebProgresivas-Appshell" title="Ver repositorio en GitHub" aria-label="Repositorio en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a></h3>
+                        <p>App Shell con Service Worker, caché, modo offline e instalación.</p>
+                    </li>
+                    <li>
+                        <h3><span class="p-ico"><i class="fas fa-shield-halved" aria-hidden="true"></i></span>Seguridad en aplicaciones <a class="repo" target="_blank" rel="noopener" href="https://github.com/Fran-Bar03/ProyectoSeguridad" title="Ver repositorio en GitHub" aria-label="Repositorio en GitHub"><i class="fab fa-github" aria-hidden="true"></i></a></h3>
+                        <p>Extracción de conocimiento en BD protegida contra vulnerabilidades y DoS.</p>
+                    </li>
+                    <li>
+                        <h3><span class="p-ico"><i class="fas fa-network-wired" aria-hidden="true"></i></span>Red en Packet Tracer</h3>
+                        <p>Servidores, routers, switches y firewall con subneteo y seguridad básica.</p>
+                    </li>
+                    <li>
+                        <h3><span class="p-ico"><i class="fas fa-vial" aria-hidden="true"></i></span>.NET MVC y pruebas</h3>
+                        <p>Registro de usuarios en .NET Core 6 MVC y pruebas con Selenium en C#.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="block">
+                <h2><span class="h-ico"><i class="fas fa-graduation-cap" aria-hidden="true"></i></span> Educación</h2>
+                <div class="edu">
+                    <div class="job-head"><h3>Ingeniería en Desarrollo y Gestión de Software</h3><span class="date"><i class="far fa-calendar-days" aria-hidden="true"></i> 2025 – 2027</span></div>
+                    <p class="org"><i class="fas fa-building-columns" aria-hidden="true"></i> Universidad Tecnológica del Sur de Sonora · En curso</p>
+                    <p class="note">Cursos: administración de proyectos de TI, extracción de conocimiento de datos, desarrollo web integral y aplicaciones web progresivas.</p>
+                </div>
+                <div class="edu">
+                    <div class="job-head"><h3>TSU en TI · Desarrollo de Software Multiplataforma</h3><span class="date"><i class="far fa-calendar-days" aria-hidden="true"></i> 2023 – 2025</span></div>
+                    <p class="org"><i class="fas fa-building-columns" aria-hidden="true"></i> Universidad Tecnológica del Sur de Sonora</p>
+                </div>
+                <div class="edu">
+                    <div class="job-head"><h3>Bachillerato</h3><span class="date"><i class="far fa-calendar-days" aria-hidden="true"></i> 2018 – 2021</span></div>
+                    <p class="org"><i class="fas fa-building-columns" aria-hidden="true"></i> Colegio de Bachilleres del Estado de Sonora · Promedio 9.7</p>
+                </div>
+            </section>
+        </main>
+    </article>
+
+    <!-- Librerías para generar el PDF directamente -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="Script.js"></script>
+</body>
+</html>
