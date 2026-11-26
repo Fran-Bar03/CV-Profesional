@@ -41,17 +41,16 @@ CV-Profesional/
 ├── Script.js    Descarga directa del PDF y foto con respaldo de iniciales
 ├── README.md    Este archivo
 ├── img/
-│   └── foto.jpg Tu fotografía (debes agregarla)
+│   ├── foto.jpg           Foto recortada que se muestra en el CV
+│   └── foto-completa.jpg  Foto completa que se abre al hacer clic
 └── certificados/
     ├── CCNA-Introduction-to-Networks.jpg     Imagen que se abre al hacer clic
-    ├── CCNA-Introduction-to-Networks.pdf     Original
-    ├── Tester-Capacitate-para-el-Empleo.jpg  Imagen que se abre al hacer clic
-    └── Tester-Capacitate-para-el-Empleo.pdf  Original
+    └── Tester-Capacitate-para-el-Empleo.jpg  Imagen que se abre al hacer clic
 ```
 
 ## Cómo agregar la foto
 
-El marco de la foto es **vertical (proporción 4:5)**, pensado para una foto tomada con celular.
+El marco de la foto es **vertical (proporción 5:8)**, pensado para una foto tomada con celular que muestre de la cabeza al pecho. Medida recomendada: **al menos 625 × 1000 px** (la foto incluida mide 827 × 1323 px).
 
 1. Toma la foto en vertical, con fondo liso, buena luz y el rostro centrado (de hombros hacia arriba).
 2. Crea la carpeta `img` junto a `Index.html`.
@@ -63,6 +62,13 @@ El marco de la foto es **vertical (proporción 4:5)**, pensado para una foto tom
    - `50% 50%`: centra la foto.
 
 Mientras no exista la foto, el CV muestra las iniciales **FB**.
+
+### Foto completa al hacer clic
+
+Al hacer clic en la foto se abre `img/foto-completa.jpg` (la imagen sin recortar), tanto en la página como en el PDF descargado. En el PDF el enlace apunta a la copia pública en GitHub:
+`https://raw.githubusercontent.com/Fran-Bar03/CV-Profesional/main/img/foto-completa.jpg`
+
+Si cambias de foto, reemplaza también `foto-completa.jpg` y súbela al repositorio.
 
 > Una foto de celular puede pesar varios MB. Para que la página cargue rápido, redúcela a unos 800 × 1000 px antes de subirla.
 
@@ -79,8 +85,6 @@ En **Certificaciones**, el ícono y el nombre de cada certificación abren la **
 - **En el PDF descargado**, el enlace apunta a la imagen directa en GitHub (sin la interfaz de GitHub):
   `https://raw.githubusercontent.com/Fran-Bar03/CV-Profesional/main/certificados/...jpg`
   Se ve igual en computadora y en celular.
-
-Los PDF originales también están en `certificados/` como respaldo.
 
 **Requisito:** el repositorio **CV-Profesional** debe ser **público** y la carpeta `certificados` debe estar subida en la rama `main`.
 

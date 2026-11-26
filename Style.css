@@ -95,18 +95,28 @@ ul { list-style: none; }
 .side {
     background: var(--charcoal);
     color: var(--side-text);
-    padding: 0.32in 0.26in 0.28in 0.3in;
+    padding: 0.28in 0.26in 0.26in 0.3in;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 11px;
 }
 
-/* Marco vertical 4:5 para foto de celular */
+/* Enlace de la foto: abre la imagen completa */
+.photo-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 15px;          /* mismo espacio visible arriba y abajo del marco */
+    border-radius: 12px;
+    cursor: zoom-in;
+}
+
+.photo-link:focus-visible { outline: 2px solid #fff; outline-offset: 8px; }
+
+/* Marco vertical 5:8 para foto de celular (de la cabeza al pecho) */
 .photo {
     position: relative;
-    width: 1.08in;
-    aspect-ratio: 4 / 5;
-    margin: 6px auto 6px;
+    width: 1.12in;
+    aspect-ratio: 5 / 8;
     border-radius: 12px;
     background: var(--charcoal-2);
     box-shadow: 0 0 0 4px var(--charcoal), 0 0 0 6px var(--emerald-lt);

@@ -9,6 +9,9 @@ const HOJA_PX = { ancho: 816, alto: 1056 };
 const HOJA_PT = { ancho: 612, alto: 792 };
 const PX_A_PT = HOJA_PT.ancho / HOJA_PX.ancho; // 0.75
 
+// Resolución del PDF: 4 = 384 ppp (computadora), 3 = 288 ppp (celular, por memoria)
+const ESCALA_PDF = window.innerWidth < 860 ? 3 : 4;
+
 const btnPdf = document.getElementById('btnPdf');
 const estado = document.getElementById('pdfStatus');
 const hoja = document.getElementById('cv');
@@ -86,8 +89,8 @@ function prepararCopia(doc, enlaces) {
         const r = a.getBoundingClientRect();
         if (r.width > 0 && r.height > 0) {
             enlaces.push({
-                // Certificados: imagen pública en GitHub (raw), se abre sin la página de GitHub
-                url: a.dataset.certUrl || a.href,
+                // Certificados y foto: imagen pública en GitHub (raw), se abre sin la página de GitHub
+                url: a.dataset.certUrl || a.dataset.publicUrl || a.href,
                 x: r.left - base.left,
                 y: r.top - base.top,
                 w: r.width,
@@ -107,7 +110,7 @@ async function descargarPdf() {
     const enlaces = [];
 
     const canvas = await html2canvas(hoja, {
-        scale: 3,                     // alta resolución
+        scale: ESCALA_PDF,            // resolución de la captura
         useCORS: true,
         backgroundColor: '#ffffff',
         logging: false,
@@ -123,7 +126,7 @@ async function descargarPdf() {
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ unit: 'pt', format: 'letter', orientation: 'portrait' });
 
-    const imagen = canvas.toDataURL('image/jpeg', 0.95);
+    const imagen = canvas.toDataURL('image/jpeg', 0.97);
     pdf.addImage(imagen, 'JPEG', 0, 0, HOJA_PT.ancho, HOJA_PT.alto);
 
     enlaces.forEach((e) => {

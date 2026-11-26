@@ -29,17 +29,23 @@
         <aside class="side">
 
             <!-- ==================== FOTO ====================
-                 Marco vertical 4:5, pensado para una foto tomada con celular.
+                 Marco vertical 5:8, pensado para una foto tomada con celular.
                  1. Crea la carpeta "img" junto a este archivo.
-                 2. Guarda tu foto como "img/foto.jpg" (vertical, fondo liso,
-                    rostro centrado y hombros visibles).
+                 2. Guarda tu foto como "img/CV1.jpg" (vertical, 625 x 1000 px,
+                    de la cabeza al pecho).
                  3. Si usas otro nombre o formato (.png, .jpeg), cámbialo en src.
                  Para mover el encuadre, cambia --photo-pos en Style.css.
                  Mientras no exista la foto se muestran las iniciales. -->
-            <div class="photo">
-                <img id="profilePhoto" src="img/foto.jpg" alt="Fotografía de Francisco Javier Barraza López">
-                <span class="photo-fallback" aria-hidden="true">FB</span>
-            </div>
+            <!-- Al hacer clic se abre la foto completa (img/CV1-Completa.jpg).
+                 En el PDF descargado abre la copia pública en GitHub. -->
+            <a class="photo-link" href="img/CV1-completa.jpg"
+               data-public-url="https://raw.githubusercontent.com/Fran-Bar03/CV-Profesional/main/img/foto-completa.jpg"
+               target="_blank" rel="noopener" title="Ver foto completa" aria-label="Ver foto completa">
+                <div class="photo">
+                    <img id="profilePhoto" src="img/CV1.jpg" alt="Fotografía de Francisco Javier Barraza López">
+                    <span class="photo-fallback" aria-hidden="true">FB</span>
+                </div>
+            </a>
 
             <section class="s-block">
                 <h2><i class="fas fa-address-card" aria-hidden="true"></i> Contacto</h2>
